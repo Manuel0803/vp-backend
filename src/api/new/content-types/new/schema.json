@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news",
+  "info": {
+    "singularName": "new",
+    "pluralName": "news",
+    "displayName": "news"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "chaco",
+        "corrientes",
+        "nacional"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "vejez",
+        "principales",
+        "urgente"
+      ]
+    },
+    "target_audience": {
+      "type": "enumeration",
+      "enum": [
+        "profesionales",
+        "vejez",
+        "cuidadores"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "news"
+    }
+  }
+}
