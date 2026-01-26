@@ -697,6 +697,39 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUsefulPhoneUsefulPhone extends Struct.CollectionTypeSchema {
+  collectionName: 'useful_phones';
+  info: {
+    displayName: 'useful_phone';
+    pluralName: 'useful-phones';
+    singularName: 'useful-phone';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<['example']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::useful-phone.useful-phone'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String;
+    priority: Schema.Attribute.Integer;
+    province: Schema.Attribute.Enumeration<['example']>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1217,6 +1250,7 @@ declare module '@strapi/strapi' {
       'api::guide.guide': ApiGuideGuide;
       'api::new.new': ApiNewNew;
       'api::place.place': ApiPlacePlace;
+      'api::useful-phone.useful-phone': ApiUsefulPhoneUsefulPhone;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

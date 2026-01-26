@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "useful_phones",
+  "info": {
+    "singularName": "useful-phone",
+    "pluralName": "useful-phones",
+    "displayName": "useful_phone"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "example"
+      ]
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "province": {
+      "type": "enumeration",
+      "enum": [
+        "example"
+      ]
+    }
+  }
+}
