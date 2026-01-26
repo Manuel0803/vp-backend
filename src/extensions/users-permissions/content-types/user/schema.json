@@ -78,6 +78,12 @@
       "target": "api::article.article",
       "mappedBy": "author"
     },
+    "guides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::guide.guide",
+      "mappedBy": "author"
+    },
     "events": {
       "type": "relation",
       "relation": "oneToMany",

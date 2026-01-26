@@ -512,6 +512,117 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGuideRequerimentGuideRequeriment
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'guide_requeriments';
+  info: {
+    displayName: 'guide_requeriment';
+    pluralName: 'guide-requeriments';
+    singularName: 'guide-requeriment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    display_order: Schema.Attribute.Integer;
+    guide: Schema.Attribute.Relation<'manyToOne', 'api::guide.guide'>;
+    is_optional: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-requeriment.guide-requeriment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGuideStepGuideStep extends Struct.CollectionTypeSchema {
+  collectionName: 'guide_steps';
+  info: {
+    displayName: 'guide_step';
+    pluralName: 'guide-steps';
+    singularName: 'guide-step';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    guide: Schema.Attribute.Relation<'manyToOne', 'api::guide.guide'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-step.guide-step'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    step_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
+  collectionName: 'guides';
+  info: {
+    displayName: 'guide';
+    pluralName: 'guides';
+    singularName: 'guide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    category: Schema.Attribute.Enumeration<['example']>;
+    content: Schema.Attribute.Blocks;
+    cost: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    guide_requeriments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-requeriment.guide-requeriment'
+    >;
+    guide_steps: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-step.guide-step'
+    >;
+    lastUpdated: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'> &
+      Schema.Attribute.Private;
+    organization: Schema.Attribute.String;
+    processing_time: Schema.Attribute.String;
+    province: Schema.Attribute.Enumeration<['example']>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    status_info: Schema.Attribute.Enumeration<['example']>;
+    target_audience: Schema.Attribute.Enumeration<['example']>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNewNew extends Struct.CollectionTypeSchema {
   collectionName: 'news';
   info: {
@@ -1019,6 +1130,7 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    guides: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1063,6 +1175,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::event.event': ApiEventEvent;
+      'api::guide-requeriment.guide-requeriment': ApiGuideRequerimentGuideRequeriment;
+      'api::guide-step.guide-step': ApiGuideStepGuideStep;
+      'api::guide.guide': ApiGuideGuide;
       'api::new.new': ApiNewNew;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
