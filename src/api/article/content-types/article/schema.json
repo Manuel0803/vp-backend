@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "news",
+  "collectionName": "articles",
   "info": {
-    "singularName": "new",
-    "pluralName": "news",
-    "displayName": "news"
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "article"
   },
   "options": {
     "draftAndPublish": true
@@ -12,12 +12,13 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "text",
+      "type": "string",
       "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "excerpt": {
       "type": "text"
@@ -25,35 +26,31 @@
     "content": {
       "type": "blocks"
     },
-    "region": {
-      "type": "enumeration",
-      "enum": [
-        "chaco",
-        "corrientes",
-        "nacional"
-      ]
+    "published_date": {
+      "type": "datetime"
     },
-    "category": {
+    "article_type": {
       "type": "enumeration",
       "enum": [
-        "vejez",
-        "principales",
-        "urgente"
+        "información",
+        "opinión",
+        "guía",
+        "noticia"
       ]
     },
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "profesionales",
         "vejez",
-        "cuidadores"
+        "profesional",
+        "acompañamiento"
       ]
     },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "news"
+      "inversedBy": "articles"
     }
   }
 }
