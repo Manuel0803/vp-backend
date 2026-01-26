@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adverstiments",
+  "info": {
+    "singularName": "adverstiment",
+    "pluralName": "adverstiments",
+    "displayName": "adverstiment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "text"
+    },
+    "place": {
+      "type": "integer"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "image_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content-media.content-media",
+      "mappedBy": "adverstiment"
+    }
+  }
+}

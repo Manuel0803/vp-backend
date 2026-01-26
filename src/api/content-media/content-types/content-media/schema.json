@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_medias",
+  "info": {
+    "singularName": "content-media",
+    "pluralName": "content-medias",
+    "displayName": "content_media"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content_type_info": {
+      "type": "enumeration",
+      "enum": [
+        "example"
+      ]
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "content_id"
+    },
+    "guide": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guide.guide",
+      "inversedBy": "content_id"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::new.new",
+      "inversedBy": "content_id"
+    },
+    "display_order": {
+      "type": "integer"
+    },
+    "media_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::media.media",
+      "mappedBy": "content_media"
+    },
+    "adverstiment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::adverstiment.adverstiment",
+      "inversedBy": "image_id"
+    }
+  }
+}

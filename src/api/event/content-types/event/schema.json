@@ -64,6 +64,12 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "events"
+    },
+    "content_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content-media.content-media",
+      "mappedBy": "event"
     }
   }
 }

@@ -79,6 +79,12 @@
       "relation": "oneToMany",
       "target": "api::guide-requeriment.guide-requeriment",
       "mappedBy": "guide"
+    },
+    "content_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content-media.content-media",
+      "mappedBy": "guide"
     }
   }
 }

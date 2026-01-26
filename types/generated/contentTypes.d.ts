@@ -430,6 +430,42 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdverstimentAdverstiment
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'adverstiments';
+  info: {
+    displayName: 'adverstiment';
+    pluralName: 'adverstiments';
+    singularName: 'adverstiment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image_id: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-media.content-media'
+    >;
+    is_active: Schema.Attribute.Boolean;
+    link: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::adverstiment.adverstiment'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    place: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -472,6 +508,44 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContentMediaContentMedia
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'content_medias';
+  info: {
+    displayName: 'content_media';
+    pluralName: 'content-medias';
+    singularName: 'content-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    adverstiment: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::adverstiment.adverstiment'
+    >;
+    content_type_info: Schema.Attribute.Enumeration<['example']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    display_order: Schema.Attribute.Integer;
+    event: Schema.Attribute.Relation<'manyToOne', 'api::event.event'>;
+    guide: Schema.Attribute.Relation<'manyToOne', 'api::guide.guide'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-media.content-media'
+    > &
+      Schema.Attribute.Private;
+    media_id: Schema.Attribute.Relation<'oneToMany', 'api::media.media'>;
+    news: Schema.Attribute.Relation<'manyToOne', 'api::new.new'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -486,6 +560,10 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     author: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.user'
+    >;
+    content_id: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-media.content-media'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -592,6 +670,10 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
     >;
     category: Schema.Attribute.Enumeration<['example']>;
     content: Schema.Attribute.Blocks;
+    content_id: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-media.content-media'
+    >;
     cost: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -623,6 +705,37 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMediaMedia extends Struct.CollectionTypeSchema {
+  collectionName: 'medias';
+  info: {
+    displayName: 'media';
+    pluralName: 'medias';
+    singularName: 'media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alt_text: Schema.Attribute.Text;
+    content_media: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::content-media.content-media'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::media.media'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<['example']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.Text;
+  };
+}
+
 export interface ApiNewNew extends Struct.CollectionTypeSchema {
   collectionName: 'news';
   info: {
@@ -640,6 +753,10 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     >;
     category: Schema.Attribute.Enumeration<['vejez', 'principales', 'urgente']>;
     content: Schema.Attribute.Blocks;
+    content_id: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-media.content-media'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1243,11 +1360,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::adverstiment.adverstiment': ApiAdverstimentAdverstiment;
       'api::article.article': ApiArticleArticle;
+      'api::content-media.content-media': ApiContentMediaContentMedia;
       'api::event.event': ApiEventEvent;
       'api::guide-requeriment.guide-requeriment': ApiGuideRequerimentGuideRequeriment;
       'api::guide-step.guide-step': ApiGuideStepGuideStep;
       'api::guide.guide': ApiGuideGuide;
+      'api::media.media': ApiMediaMedia;
       'api::new.new': ApiNewNew;
       'api::place.place': ApiPlacePlace;
       'api::useful-phone.useful-phone': ApiUsefulPhoneUsefulPhone;
