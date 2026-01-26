@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guide_requeriments",
+  "info": {
+    "singularName": "guide-requeriment",
+    "pluralName": "guide-requeriments",
+    "displayName": "guide_requeriment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "is_optional": {
+      "type": "boolean"
+    },
+    "display_order": {
+      "type": "integer"
+    },
+    "guide": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guide.guide",
+      "inversedBy": "guide_requeriments"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guide_steps",
+  "info": {
+    "singularName": "guide-step",
+    "pluralName": "guide-steps",
+    "displayName": "guide_step"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "step_number": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "guide": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guide.guide",
+      "inversedBy": "guide_steps"
+    }
+  }
+}
