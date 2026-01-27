@@ -60,6 +60,9 @@
       "relation": "oneToMany",
       "target": "api::content-media.content-media",
       "mappedBy": "news"
+    },
+    "published_date": {
+      "type": "datetime"
     }
   }
 }

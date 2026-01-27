@@ -764,6 +764,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::new.new'> &
       Schema.Attribute.Private;
+    published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.Enumeration<['chaco', 'corrientes', 'nacional']>;
     slug: Schema.Attribute.UID<'title'>;
