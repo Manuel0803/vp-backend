@@ -89,6 +89,19 @@
       "relation": "oneToMany",
       "target": "api::event.event",
       "mappedBy": "author"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "full_name": {
+      "type": "string"
     }
   }
 }

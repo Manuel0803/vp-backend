@@ -17,7 +17,7 @@
     },
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -56,7 +56,8 @@
       "type": "decimal"
     },
     "is_active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -16,7 +16,8 @@
       "required": true
     },
     "is_optional": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "display_order": {
       "type": "integer"

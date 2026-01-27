@@ -22,7 +22,8 @@
       "type": "integer"
     },
     "is_active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "media": {
       "type": "media",

@@ -445,7 +445,7 @@ export interface ApiAdverstimentAdverstiment
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    is_active: Schema.Attribute.Boolean;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -567,7 +567,7 @@ export interface ApiGuideRequerimentGuideRequeriment
     description: Schema.Attribute.String & Schema.Attribute.Required;
     display_order: Schema.Attribute.Integer;
     guide: Schema.Attribute.Relation<'manyToOne', 'api::guide.guide'>;
-    is_optional: Schema.Attribute.Boolean;
+    is_optional: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -723,11 +723,8 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    is_active: Schema.Attribute.Boolean;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     latitude: Schema.Attribute.Decimal;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::place.place'> &
@@ -1246,6 +1243,7 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    full_name: Schema.Attribute.String;
     guides: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1253,6 +1251,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     news: Schema.Attribute.Relation<'oneToMany', 'api::new.new'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
