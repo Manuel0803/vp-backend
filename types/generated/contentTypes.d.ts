@@ -475,7 +475,15 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
   attributes: {
     article_type: Schema.Attribute.Enumeration<
-      ['informaci\u00F3n', 'opini\u00F3n', 'gu\u00EDa', 'noticia']
+      [
+        'PRACTICAL_INFO',
+        'INTERVIEW',
+        'OPINION',
+        'REPORT',
+        'STORY',
+        'AGENDA',
+        'RESOURCE',
+      ]
     >;
     author: Schema.Attribute.Relation<
       'manyToOne',
@@ -496,7 +504,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     target_audience: Schema.Attribute.Enumeration<
-      ['vejez', 'profesional', 'acompa\u00F1amiento']
+      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -525,7 +533,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
     end_date: Schema.Attribute.DateTime;
-    event_type: Schema.Attribute.Enumeration<['charla', 'taller', 'encuentro']>;
+    event_type: Schema.Attribute.Enumeration<['VIRTUAL_COURSE', 'CONGRESS']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
@@ -534,13 +542,13 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    modality: Schema.Attribute.Enumeration<['presencial', 'virtual']>;
+    modality: Schema.Attribute.Enumeration<['VIRTUAL', 'PRESENTIAL']>;
     organizer: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     start_date: Schema.Attribute.DateTime;
     target_audience: Schema.Attribute.Enumeration<
-      ['vejez', 'familia', 'profesionales']
+      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -627,7 +635,9 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    category: Schema.Attribute.Enumeration<['example']>;
+    category: Schema.Attribute.Enumeration<
+      ['PROVISIONAL', 'SOCIAL', 'DOCUMENTATION', 'HEALTH']
+    >;
     content: Schema.Attribute.Blocks;
     cost: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -652,11 +662,13 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
     >;
     organization: Schema.Attribute.String;
     processing_time: Schema.Attribute.String;
-    province: Schema.Attribute.Enumeration<['example']>;
+    province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    status_info: Schema.Attribute.Enumeration<['example']>;
-    target_audience: Schema.Attribute.Enumeration<['example']>;
+    status_info: Schema.Attribute.Enumeration<['ACTIVE', 'IDLE']>;
+    target_audience: Schema.Attribute.Enumeration<
+      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -679,7 +691,19 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    category: Schema.Attribute.Enumeration<['vejez', 'principales', 'urgente']>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'RIGHTS',
+        'HEALTH_PREVENTION',
+        'WELLBEING',
+        'ACTIVE_LIVING',
+        'CARE_FAMILY',
+        'COMMUNITY',
+        'CULTURE_LEARNING',
+        'SERVICES_PROCEDURES',
+        'CURRENTS_AFFAIRS',
+      ]
+    >;
     content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -694,10 +718,10 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     >;
     published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
-    region: Schema.Attribute.Enumeration<['chaco', 'corrientes', 'nacional']>;
+    region: Schema.Attribute.Enumeration<['ARGENTINA', 'CHACO', 'CORRIENTES']>;
     slug: Schema.Attribute.UID<'title'>;
     target_audience: Schema.Attribute.Enumeration<
-      ['profesionales', 'vejez', 'cuidadores']
+      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
     >;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -718,8 +742,12 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   };
   attributes: {
     address: Schema.Attribute.String;
-    category: Schema.Attribute.Enumeration<['example']>;
-    city: Schema.Attribute.Enumeration<['example']>;
+    category: Schema.Attribute.Enumeration<
+      ['COMMUNITY_LIBRARIES', 'SENIOR_CENTERS', 'WORKSHOPS', 'HEALTH_CENTER']
+    >;
+    city: Schema.Attribute.Enumeration<
+      ['RESISTENCIA', 'CORRIENTES', 'BARRANQUERAS', 'SANTA_ANA']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -732,7 +760,7 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     longitude: Schema.Attribute.Decimal;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String;
-    province: Schema.Attribute.Enumeration<['example']>;
+    province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -751,7 +779,9 @@ export interface ApiUsefulPhoneUsefulPhone extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['example']>;
+    category: Schema.Attribute.Enumeration<
+      ['PUBLIC_SERVICES', 'EMERGENCY', 'PUBLIC_HEALTH']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -765,7 +795,7 @@ export interface ApiUsefulPhoneUsefulPhone extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String;
     priority: Schema.Attribute.Integer;
-    province: Schema.Attribute.Enumeration<['example']>;
+    province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -24,7 +24,9 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "PUBLIC_SERVICES",
+        "EMERGENCY",
+        "PUBLIC_HEALTH"
       ]
     },
     "priority": {
@@ -33,7 +35,8 @@
     "province": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "CHACO",
+        "CORRIENTES"
       ]
     }
   }

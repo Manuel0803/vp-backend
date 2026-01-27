@@ -27,16 +27,15 @@
       "type": "enumeration",
       "required": false,
       "enum": [
-        "charla",
-        "taller",
-        "encuentro"
+        "VIRTUAL_COURSE",
+        "CONGRESS"
       ]
     },
     "modality": {
       "type": "enumeration",
       "enum": [
-        "presencial",
-        "virtual"
+        "VIRTUAL",
+        "PRESENTIAL"
       ]
     },
     "start_date": {
@@ -54,9 +53,10 @@
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "vejez",
-        "familia",
-        "profesionales"
+        "OLDER_PEOPLE",
+        "FAMILY",
+        "PROFESIONAL",
+        "ALL"
       ]
     },
     "author": {

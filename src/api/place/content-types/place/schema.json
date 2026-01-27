@@ -28,19 +28,26 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "COMMUNITY_LIBRARIES",
+        "SENIOR_CENTERS",
+        "WORKSHOPS",
+        "HEALTH_CENTER"
       ]
     },
     "province": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "CHACO",
+        "CORRIENTES"
       ]
     },
     "city": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "RESISTENCIA",
+        "CORRIENTES",
+        "BARRANQUERAS",
+        "SANTA_ANA"
       ]
     },
     "address": {

@@ -29,19 +29,24 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "PROVISIONAL",
+        "SOCIAL",
+        "DOCUMENTATION",
+        "HEALTH"
       ]
     },
     "province": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "CHACO",
+        "CORRIENTES"
       ]
     },
     "status_info": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "ACTIVE",
+        "IDLE"
       ]
     },
     "lastUpdated": {
@@ -59,7 +64,10 @@
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "example"
+        "OLDER_PEOPLE",
+        "FAMILY",
+        "PROFESIONAL",
+        "ALL"
       ]
     },
     "author": {

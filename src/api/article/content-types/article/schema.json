@@ -32,18 +32,22 @@
     "article_type": {
       "type": "enumeration",
       "enum": [
-        "información",
-        "opinión",
-        "guía",
-        "noticia"
+        "PRACTICAL_INFO",
+        "INTERVIEW",
+        "OPINION",
+        "REPORT",
+        "STORY",
+        "AGENDA",
+        "RESOURCE"
       ]
     },
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "vejez",
-        "profesional",
-        "acompañamiento"
+        "OLDER_PEOPLE",
+        "FAMILY",
+        "PROFESIONAL",
+        "ALL"
       ]
     },
     "author": {

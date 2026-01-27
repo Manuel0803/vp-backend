@@ -28,25 +28,32 @@
     "region": {
       "type": "enumeration",
       "enum": [
-        "chaco",
-        "corrientes",
-        "nacional"
+        "ARGENTINA",
+        "CHACO",
+        "CORRIENTES"
       ]
     },
     "category": {
       "type": "enumeration",
       "enum": [
-        "vejez",
-        "principales",
-        "urgente"
+        "RIGHTS",
+        "HEALTH_PREVENTION",
+        "WELLBEING",
+        "ACTIVE_LIVING",
+        "CARE_FAMILY",
+        "COMMUNITY",
+        "CULTURE_LEARNING",
+        "SERVICES_PROCEDURES",
+        "CURRENTS_AFFAIRS"
       ]
     },
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "profesionales",
-        "vejez",
-        "cuidadores"
+        "OLDER_PEOPLE",
+        "FAMILY",
+        "PROFESIONAL",
+        "ALL"
       ]
     },
     "author": {
