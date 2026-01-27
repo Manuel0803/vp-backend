@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "link": {
       "type": "text"
@@ -23,11 +24,15 @@
     "is_active": {
       "type": "boolean"
     },
-    "image_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::content-media.content-media",
-      "mappedBy": "adverstiment"
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
