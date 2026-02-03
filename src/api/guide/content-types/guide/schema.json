@@ -73,7 +73,7 @@
     "author": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
+      "target": "api::author.author",
       "inversedBy": "guides"
     },
     "guide_steps": {
