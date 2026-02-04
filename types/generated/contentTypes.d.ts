@@ -714,15 +714,14 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Enumeration<
       [
-        'RIGHTS',
-        'HEALTH_PREVENTION',
-        'WELLBEING',
-        'ACTIVE_LIVING',
-        'CARE_FAMILY',
-        'COMMUNITY',
-        'CULTURE_LEARNING',
-        'SERVICES_PROCEDURES',
-        'CURRENTS_AFFAIRS',
+        'Derechos',
+        'Salud',
+        'Bienestar',
+        'Familia',
+        'Comunidad',
+        'Cultura',
+        'Servicios',
+        'Internacionales',
       ]
     >;
     content: Schema.Attribute.Blocks;

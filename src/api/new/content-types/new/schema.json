@@ -36,15 +36,14 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "RIGHTS",
-        "HEALTH_PREVENTION",
-        "WELLBEING",
-        "ACTIVE_LIVING",
-        "CARE_FAMILY",
-        "COMMUNITY",
-        "CULTURE_LEARNING",
-        "SERVICES_PROCEDURES",
-        "CURRENTS_AFFAIRS"
+        "Derechos",
+        "Salud",
+        "Bienestar",
+        "Familia",
+        "Comunidad",
+        "Cultura",
+        "Servicios",
+        "Internacionales"
       ]
     },
     "target_audience": {
