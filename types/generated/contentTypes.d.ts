@@ -476,21 +476,34 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   attributes: {
     article_type: Schema.Attribute.Enumeration<
       [
-        'PRACTICAL_INFO',
-        'INTERVIEW',
+        'INFORMACION_PRACTICA',
+        'ENTREVISTA',
         'OPINION',
-        'REPORT',
-        'STORY',
+        'INFORME',
+        'HISTORIA',
         'AGENDA',
-        'RESOURCE',
+        'RECURSOS',
       ]
     >;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'GESTION_DEPENDENCIA',
+        'TRAMITES_DERECHOS',
+        'SALUD_BIENESTAR',
+        'PARTICIPACION_CULTURA',
+        'RESIDENCIAS',
+        'VIDA_SOCIAL',
+        'MARCO_NORMATIVO',
+        'ACTUALIDAD_PROFESIONAL',
+      ]
+    >;
     content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     excerpt: Schema.Attribute.Text;
+    hub: Schema.Attribute.Relation<'manyToOne', 'api::content-hub.content-hub'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -537,6 +550,50 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     news: Schema.Attribute.Relation<'oneToMany', 'api::new.new'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContentHubContentHub extends Struct.CollectionTypeSchema {
+  collectionName: 'content_hubs';
+  info: {
+    displayName: 'content-hub';
+    pluralName: 'content-hubs';
+    singularName: 'content-hub';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'GESTION_DEPENDENCIA',
+        'TRAMITES_DERECHOS',
+        'SALUD_BIENESTAR',
+        'PARTICIPACION_CULTURA',
+        'RESIDENCIAS',
+        'VIDA_SOCIAL',
+        'MARCO_NORMATIVO',
+        'ACTUALIDAD_PROFESIONAL',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content-hub.content-hub'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1337,6 +1394,7 @@ declare module '@strapi/strapi' {
       'api::adverstiment.adverstiment': ApiAdverstimentAdverstiment;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::content-hub.content-hub': ApiContentHubContentHub;
       'api::event.event': ApiEventEvent;
       'api::guide-requeriment.guide-requeriment': ApiGuideRequerimentGuideRequeriment;
       'api::guide-step.guide-step': ApiGuideStepGuideStep;

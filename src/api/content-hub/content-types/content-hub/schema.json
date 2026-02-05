@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_hubs",
+  "info": {
+    "singularName": "content-hub",
+    "pluralName": "content-hubs",
+    "displayName": "content-hub"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "GESTION_DEPENDENCIA",
+        "TRAMITES_DERECHOS",
+        "SALUD_BIENESTAR",
+        "PARTICIPACION_CULTURA",
+        "RESIDENCIAS",
+        "VIDA_SOCIAL",
+        "MARCO_NORMATIVO",
+        "ACTUALIDAD_PROFESIONAL"
+      ]
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "hub"
+    }
+  }
+}
