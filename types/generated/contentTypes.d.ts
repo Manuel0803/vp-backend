@@ -510,6 +510,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     > &
       Schema.Attribute.Private;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;

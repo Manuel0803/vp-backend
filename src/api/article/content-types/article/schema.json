@@ -74,6 +74,16 @@
       "relation": "manyToOne",
       "target": "api::content-hub.content-hub",
       "inversedBy": "articles"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
