@@ -59,14 +59,14 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "GESTION_DEPENDENCIA",
-        "TRAMITES_DERECHOS",
-        "SALUD_BIENESTAR",
-        "PARTICIPACION_CULTURA",
-        "RESIDENCIAS",
-        "VIDA_SOCIAL",
-        "MARCO_NORMATIVO",
-        "ACTUALIDAD_PROFESIONAL"
+        "Gestión de la Dependencia",
+        "Trámites y Derechos",
+        "Salud y Bienestar",
+        "Participación y Cultura",
+        "Residencias",
+        "Vida Social",
+        "Marco Normativo",
+        "Actualidad Profesional"
       ]
     },
     "hub": {

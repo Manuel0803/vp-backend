@@ -20,22 +20,22 @@
       "targetField": "title",
       "required": true
     },
-    "description": {
+    "content": {
       "type": "blocks"
     },
     "event_type": {
       "type": "enumeration",
       "required": false,
       "enum": [
-        "VIRTUAL_COURSE",
-        "CONGRESS"
+        "Curso Virtual",
+        "Congreso"
       ]
     },
     "modality": {
       "type": "enumeration",
       "enum": [
-        "VIRTUAL",
-        "PRESENTIAL"
+        "Virtual",
+        "Presencial"
       ]
     },
     "start_date": {
@@ -74,6 +74,9 @@
         "videos",
         "audios"
       ]
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
