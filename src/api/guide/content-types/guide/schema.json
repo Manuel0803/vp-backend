@@ -97,6 +97,29 @@
         "videos",
         "audios"
       ]
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_address": {
+      "type": "string"
+    },
+    "contact_website": {
+      "type": "string"
+    },
+    "contact_hours": {
+      "type": "string"
+    },
+    "guide_tips": {
+      "type": "component",
+      "component": "elements.tip",
+      "repeatable": true
+    },
+    "appointment_info": {
+      "type": "string"
+    },
+    "modality_info": {
+      "type": "string"
     }
   }
 }

@@ -715,10 +715,15 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    appointment_info: Schema.Attribute.String;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Enumeration<
       ['PROVISIONAL', 'SOCIAL', 'DOCUMENTATION', 'HEALTH']
     >;
+    contact_address: Schema.Attribute.String;
+    contact_hours: Schema.Attribute.String;
+    contact_phone: Schema.Attribute.String;
+    contact_website: Schema.Attribute.String;
     content: Schema.Attribute.Blocks;
     cost: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -733,6 +738,7 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::guide-step.guide-step'
     >;
+    guide_tips: Schema.Attribute.Component<'elements.tip', true>;
     lastUpdated: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'> &
@@ -741,6 +747,7 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    modality_info: Schema.Attribute.String;
     organization: Schema.Attribute.String;
     processing_time: Schema.Attribute.String;
     province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
