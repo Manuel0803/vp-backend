@@ -488,14 +488,14 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Enumeration<
       [
-        'GESTION_DEPENDENCIA',
-        'TRAMITES_DERECHOS',
-        'SALUD_BIENESTAR',
-        'PARTICIPACION_CULTURA',
-        'RESIDENCIAS',
-        'VIDA_SOCIAL',
-        'MARCO_NORMATIVO',
-        'ACTUALIDAD_PROFESIONAL',
+        'Gesti\u00F3n de la Dependencia',
+        'Tr\u00E1mites y Derechos',
+        'Salud y Bienestar',
+        'Participaci\u00F3n y Cultura',
+        'Residencias',
+        'Vida Social',
+        'Marco Normativo',
+        'Actualidad Profesional',
       ]
     >;
     content: Schema.Attribute.Blocks;
@@ -616,12 +616,13 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Text;
     end_date: Schema.Attribute.DateTime;
-    event_type: Schema.Attribute.Enumeration<['VIRTUAL_COURSE', 'CONGRESS']>;
+    event_type: Schema.Attribute.Enumeration<['Curso Virtual', 'Congreso']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
@@ -630,7 +631,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    modality: Schema.Attribute.Enumeration<['VIRTUAL', 'PRESENTIAL']>;
+    modality: Schema.Attribute.Enumeration<['Virtual', 'Presencial']>;
     organizer: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
