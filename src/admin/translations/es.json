@@ -607,8 +607,15 @@
   "content-type-builder.search.placeholder": "Buscar",
   "global.more.actions": "Más acciones",
   "search.placeholder" : "Buscar",
-  "adverstiment": "Publicidades"
-  
-
-
+  "adverstiment": "Publicidades",
+  "User": "Usuario",
+  "useful_phone" : "Teléfonos útiles",
+  "place": "Lugares de interés",
+  "news": "Noticias",
+  "guide_step": "Pasos para guías",
+  "guide_requeriment": "Requerimientos para guías",
+  "guide": "Guías",
+  "content-hub": "Tipo de contenido",
+  "author": "Autor",
+  "content-manager.containers.list.table-headers.status": "Estado"
 }
