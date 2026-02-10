@@ -65,6 +65,9 @@
     "is_active": {
       "type": "boolean",
       "default": false
+    },
+    "schedule": {
+      "type": "string"
     }
   }
 }
