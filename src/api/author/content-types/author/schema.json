@@ -47,6 +47,9 @@
       "relation": "oneToMany",
       "target": "api::guide.guide",
       "mappedBy": "author"
+    },
+    "role": {
+      "type": "string"
     }
   }
 }
