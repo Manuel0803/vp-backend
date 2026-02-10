@@ -846,6 +846,7 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     phone: Schema.Attribute.String;
     province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
     publishedAt: Schema.Attribute.DateTime;
+    schedule: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
