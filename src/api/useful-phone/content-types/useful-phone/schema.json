@@ -15,22 +15,23 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "string"
-    },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "category": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "PUBLIC_SERVICES",
         "EMERGENCY",
-        "PUBLIC_HEALTH"
+        "PUBLIC_HEALTH",
+        "IMPORTANT"
       ]
     },
     "priority": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "province": {
       "type": "enumeration",
@@ -43,10 +44,20 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
+      ]
+    },
+    "tag": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "URGENCIA",
+        "ATENCION_24_HRS"
       ]
     }
   }

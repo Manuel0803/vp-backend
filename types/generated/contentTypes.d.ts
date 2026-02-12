@@ -871,13 +871,13 @@ export interface ApiUsefulPhoneUsefulPhone extends Struct.CollectionTypeSchema {
   };
   attributes: {
     category: Schema.Attribute.Enumeration<
-      ['PUBLIC_SERVICES', 'EMERGENCY', 'PUBLIC_HEALTH']
-    >;
+      ['PUBLIC_SERVICES', 'EMERGENCY', 'PUBLIC_HEALTH', 'IMPORTANT']
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -885,10 +885,13 @@ export interface ApiUsefulPhoneUsefulPhone extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    phone: Schema.Attribute.String;
-    priority: Schema.Attribute.Integer;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    priority: Schema.Attribute.Integer & Schema.Attribute.Required;
     province: Schema.Attribute.Enumeration<['CHACO', 'CORRIENTES']>;
     publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    tag: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['URGENCIA', 'ATENCION_24_HRS']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
