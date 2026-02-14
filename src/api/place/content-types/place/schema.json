@@ -57,10 +57,10 @@
       "type": "string"
     },
     "latitude": {
-      "type": "decimal"
+      "type": "float"
     },
     "longitude": {
-      "type": "decimal"
+      "type": "float"
     },
     "is_active": {
       "type": "boolean",
