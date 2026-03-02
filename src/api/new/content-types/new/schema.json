@@ -49,10 +49,10 @@
     "target_audience": {
       "type": "enumeration",
       "enum": [
-        "OLDER_PEOPLE",
-        "FAMILY",
-        "PROFESIONAL",
-        "ALL"
+        "ADULTOS_MAYORES",
+        "FAMILIA",
+        "PROFESIONALES",
+        "TODOS"
       ]
     },
     "author": {

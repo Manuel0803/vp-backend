@@ -518,7 +518,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     target_audience: Schema.Attribute.Enumeration<
-      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
+      ['ADULTOS_MAYORES', 'FAMILIA', 'PROFESIONALES', 'TODOS']
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -811,7 +811,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     region: Schema.Attribute.Enumeration<['ARGENTINA', 'CHACO', 'CORRIENTES']>;
     slug: Schema.Attribute.UID<'title'>;
     target_audience: Schema.Attribute.Enumeration<
-      ['OLDER_PEOPLE', 'FAMILY', 'PROFESIONAL', 'ALL']
+      ['ADULTOS_MAYORES', 'FAMILIA', 'PROFESIONALES', 'TODOS']
     >;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
