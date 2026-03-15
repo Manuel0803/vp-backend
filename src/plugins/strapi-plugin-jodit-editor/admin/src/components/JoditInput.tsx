@@ -471,7 +471,7 @@ const JoditInput: React.FC<JoditInputProps> = ({
     language: 'es',
 
     // Theme
-    theme: 'light',
+    theme: 'dark',
 
     // Additional Strapi-specific settings
     beautifyHTML: true,
