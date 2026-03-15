@@ -499,6 +499,18 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       ]
     >;
     content: Schema.Attribute.Blocks;
+    content_html: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::jodit-editor.jodit',
+        {
+          buttons: 'undo, redo, |, font, fontsize, brush, paragraph, lineHeight, |, bold, italic, underline, strikethrough, eraser, |, left, center, right, justify, |, ul, ol, indent, outdent, |, link, unlink, strapiMedia, video, table, hr, symbols, |, copy, cut, paste, selectall, |, fullsize, find';
+          fonts: '';
+          height: 600;
+          readonly: false;
+          toolbar: true;
+          webp: '';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -795,6 +807,18 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
       ]
     >;
     content: Schema.Attribute.Blocks;
+    content_html: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::jodit-editor.jodit',
+        {
+          buttons: 'undo, redo, |, font, fontsize, brush, paragraph, lineHeight, |, bold, italic, underline, strikethrough, eraser, |, left, center, right, justify, |, ul, ol, indent, outdent, |, link, unlink, strapiMedia, video, table, hr, symbols, |, copy, cut, paste, selectall, |, fullsize, find';
+          fonts: '';
+          height: 600;
+          readonly: false;
+          toolbar: true;
+          webp: '';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

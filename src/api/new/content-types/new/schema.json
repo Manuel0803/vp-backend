@@ -73,6 +73,18 @@
         "videos",
         "audios"
       ]
+    },
+    "content_html": {
+      "type": "customField",
+      "customField": "plugin::jodit-editor.jodit",
+      "options": {
+        "height": 600,
+        "readonly": false,
+        "buttons": "undo, redo, |, font, fontsize, brush, paragraph, lineHeight, |, bold, italic, underline, strikethrough, eraser, |, left, center, right, justify, |, ul, ol, indent, outdent, |, link, unlink, strapiMedia, video, table, hr, symbols, |, copy, cut, paste, selectall, |, fullsize, find",
+        "toolbar": true,
+        "fonts": "",
+        "webp": ""
+      }
     }
   }
 }
