@@ -503,7 +503,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::jodit-editor.jodit',
         {
-          buttons: 'undo, redo, |, font, fontsize, brush, paragraph, lineHeight, |, bold, italic, underline, strikethrough, eraser, |, left, center, right, justify, |, ul, ol, indent, outdent, |, link, unlink, strapiMedia, video, table, hr, symbols, |, copy, cut, paste, selectall, |, fullsize, find';
+          buttons: '';
           fonts: '';
           height: 600;
           readonly: false;
@@ -811,7 +811,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::jodit-editor.jodit',
         {
-          buttons: 'undo, redo, |, font, fontsize, brush, paragraph, lineHeight, |, bold, italic, underline, strikethrough, eraser, |, left, center, right, justify, |, ul, ol, indent, outdent, |, link, unlink, strapiMedia, video, table, hr, symbols, |, copy, cut, paste, selectall, |, fullsize, find';
+          buttons: '';
           fonts: '';
           height: 600;
           readonly: false;
